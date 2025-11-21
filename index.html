@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"> <!-- 声明文档的字符集 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- 设置网页视口的元数据标签 -->
+    <title>Energy-GS</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet"> <!-- 表示被链接的文件是一个样式表文件 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+  </head>
+
+  <!-- cover -->
+  <section>
+    <!-- 内容划分元素 -->
+    <div class="jumbotron text-center mt-0"> <!--jumbotron类可用于创建具有特殊样式的大型容器，text-center类用于居中文本，而mt-0类用于删除顶部的外边距-->
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2> Energy-GS: Image Energy-guided Pose Alignment Gaussian Splatting with redesigned pose gradient flow</h2>
+            <h4 style="color:#5a6268;">Current state: Continue Updating(last time:2025.11.18)</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <hr style="margin-top:0px">
+            <img class="img-fluid" src="image/Figure1_Mip360.png">
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <!-- abstract -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Abstract</h3>
+            <hr style="margin-top:0px">
+          <p class="text-justify">  High-quality 3D scene representation in radiance fields relies on accurate camera poses which are often difficult to acquire in real-world scenarios. An effective solution is to use RGB images for the joint optimization of radiance fields and camera poses, an approach that has been well explored in NeRF series methods. However, unlike NeRF, joint optimization in 3D Gaussian Splatting (3DGS) often requires additional regularization or prior spatial knowledge to reach comparable performance. To eliminate these dependencies, we introduce Energy-GS, a pose-aware Gaussian splatting framework that jointly optimizes scene representation and camera poses using only RGB images. We observe that pose gradients in joint optimization are unstable due to the point-based rendering mechanism. Furthermore, unlike NeRF’s spatial sampling framework that enables coarse-to-fine pose alignment, rasterization-based 3DGS lacks controllable sampling and thus cannot support progressive pose refinement. To address these challenges, we redesign the optimization strategy of Gaussian primitives and introduce an image-energy-guided constraint that encourages progressive alignment of camera poses. Experiments on both synthetic and real-world datasets show that Energy-GS can effectively optimize the scene reconstruction and resolve camera pose misalignment at the same time. Benefiting from reliance on only RGB images, we believe this work provides promising insights for visual localization and dense mapping applications such as SLAM.</p>
+          <p class="text-justify"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <!-- Overview -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Overview</h3>
+            <hr style="margin-top:0px">
+            <img class="img-fluid" src="image/overview.png">
+            <!-- <br><br> -->
+            <p class="text-justify">Overview of the proposed method. First, Energy-GS starts from imperfect  camera poses and randomly initialized Gaussian primitives with fixed, non-learnable positions. Second, the poses are parameterized into learnable variables, and our proposed densification strategy is applied to the Gaussian primitives. Then, benefiting from the fixed positions and the densification, we are able to establish a stable set of primitives for each rendered tile, which ensures the stability of camera pose gradients during joint optimization. Next, the proposed image energy control strategy decomposes and suppresses specific energy components in the multi-view images to generate target energy images. Finally, a photometric loss between the predicted and target energy images jointly supervises camera pose refinement and scene reconstruction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <!-- Exp.1  1D Signal Alignment -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Exp.1  1D Signal Alignment</h3>
+            <hr style="margin-top:0px">
+            <img class="img-fluid zoom" src="image/1D.gif">
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <!-- Exp.2  3D rendering -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Exp.2  Training Process of 3D-GS and Energy-GS</h3>
+            <hr style="margin-top:0px">
+            <img class="img-fluid zoom" src="image/3D.gif">
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+</body>
+</html>
